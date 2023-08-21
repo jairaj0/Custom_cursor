@@ -1,5 +1,9 @@
-const circles = document.querySelectorAll(".circle");
 const coords = { x: 0, y: 0 };
+const circles = document.querySelectorAll(".circle");
+const svg = document.querySelector(".cursor img");
+
+svg.style.visibility = "hidden";
+
 
 circles.forEach(function (circle, index) {
   circle.x = 0;
@@ -9,6 +13,20 @@ circles.forEach(function (circle, index) {
 window.addEventListener("mousemove", function (e) {
   coords.x = e.clientX - 30;
   coords.y = e.clientY - 30;
+
+  svg.style.visibility = "hidden";
+  circles.forEach(function(circle) {
+    circle.style.display = "block";
+});
+
+setTimeout(function () {
+    circles.forEach(function(circle) {
+        circle.style.display = "none";
+        svg.style.visibility = "visible";
+        svg.style.display = "block";
+    });
+  }, 1000); // Adjust the delay as needed
+
 });
 
 
@@ -21,7 +39,7 @@ function animateCircles() {
     circle.style.top = y + "px";
 
     const len = circles.length *2;
-    circle.style.scale =  (len - index) / len;
+    circle.style.scale = (innerWidth / 1400) * (len- index) / len;
 
     circle.x = x;
     circle.y = y;
@@ -34,4 +52,4 @@ function animateCircles() {
   requestAnimationFrame(animateCircles);
 }
 
-animateCircles()
+animateCircles();

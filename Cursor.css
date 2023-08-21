@@ -44,5 +44,8 @@ h1 span:last-child{
   position: absolute;
 }
 
-
+.cursor .anim_cursor{
+    background: none;
+    transform: scale(1.3);
+}
 
