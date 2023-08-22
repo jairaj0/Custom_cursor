@@ -9,32 +9,21 @@ body{
 }
 
 h1{
-    font-size: 200px;
     color: #ccc;
-    width: fit-content;
-    margin: 0 auto;
-    padding-top: 10rem;
     font-family: 'Odibee Sans', cursive;
+    font-size: 200px;
+    margin: 0 auto;
+    width: fit-content;
+    padding-top: 10rem;
     cursor: pointer;
 }
 
 h1 span:last-child{
     padding-left: 50%;
+    color: #23ff2e;
 }
 
 /* ********* Cursor ********** */
-
-
-.cursor{
-    pointer-events: none;
-    position: fixed;
-    display: block;
-    border-radius: 0;
-    transform-origin: center center;
-    z-index: 99998;
-    mix-blend-mode: difference;
-    filter: url(#goo);
-}
 
 .cursor .circle {
   height: 60px;
@@ -43,6 +32,14 @@ h1 span:last-child{
   background-color: #fff;
   position: absolute;
 }
+
+.cursor{
+    z-index: 99998;
+    mix-blend-mode: difference;    /* change background color  */
+    pointer-events: none;  /* Cursor not working without it  */
+}
+
+/* ********* Cursor animation ********** */
 
 .cursor .anim_cursor{
     background: none;
